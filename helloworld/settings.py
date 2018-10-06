@@ -25,8 +25,7 @@ SECRET_KEY = 'x9grjd59tgk-z_pn=0d-7urc%10@l8r@+44&u^w*xr7^u*oonz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-if 'dyno' in os.environ:
-    DEBUG=False
+if not DEBUG:
     import dj_database_url
     db_from_env = dj_database_url.config()
     DATABASES['default'].update(db_from_env)
