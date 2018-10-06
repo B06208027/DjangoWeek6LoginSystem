@@ -25,10 +25,7 @@ SECRET_KEY = 'x9grjd59tgk-z_pn=0d-7urc%10@l8r@+44&u^w*xr7^u*oonz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-if not DEBUG:
-    import dj_database_url
-    db_from_env = dj_database_url.config()
-    DATABASES['default'].update(db_from_env)
+
 
 
 ALLOWED_HOSTS = [".herokuapp.com"]
@@ -139,7 +136,13 @@ if DEBUG:
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-
+# testarea
+if not DEBUG:
+    import dj_database_url
+    db_from_env = dj_database_url.config()
+    DATABASES['default'].update(db_from_env)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 STATIC_URL = '/static/'
 django_heroku.settings(locals())
