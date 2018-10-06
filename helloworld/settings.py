@@ -25,7 +25,7 @@ SECRET_KEY = 'x9grjd59tgk-z_pn=0d-7urc%10@l8r@+44&u^w*xr7^u*oonz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://weidbtest.herokuapp.com"]
 
 
 # Application definition
