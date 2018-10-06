@@ -137,12 +137,12 @@ else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # testarea
-# if not DEBUG:
-#     import dj_database_url
-#     db_from_env = dj_database_url.config()
-#     DATABASES['default'].update(db_from_env)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+if not DEBUG:
+    import dj_database_url
+    db_from_env = dj_database_url.config()
+    DATABASES['default'].update(db_from_env)
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 STATIC_URL = '/static/'
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
