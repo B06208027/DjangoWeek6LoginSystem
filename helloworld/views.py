@@ -4,14 +4,20 @@ from django.contrib import auth
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from guestbook.models import TextMessage
+import time
+
+def guestbook(request):
+
+	if request.method == 'POST':
+		_talker = request.POST.get('name')
+		_message = request.POST.get('msg')
+		_talktime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
+		TextMessage.objects.create(talker=_talker, message=_message, talktime=_talktime)
+		
+	msgs = TextMessage.objects.all()
+
+	return render(request, 'guestbookver1.html', locals())
 
 def index(request):
 
-	t1 = TextMessage.objects.create(talker='Michael', message='Hello, Professor!')
-	t2 = TextMessage.objects.create(talker='Pecu', message='Hello, Class!')
-	t3 = TextMessage.objects.create(talker='Domi', message='Hello, Michael!')
-
-	msgs = TextMessage.objects.all()
-
-
-	return render(request, 'guestbookver1.html', locals())
+	return render(request, 'index.html')

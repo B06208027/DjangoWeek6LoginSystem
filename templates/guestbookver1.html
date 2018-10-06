@@ -26,7 +26,8 @@
             {% endfor %}
         </div>
         <div id="send-box">
-            <form id="send-form">
+            <form id="send-form" action="." method="post">
+                {% csrf_token %}
                 <input type="text" name="name" id="name" placeholder="暱稱">
                 <input type="text" name="msg" id="msg" placeholder="說點什麼？">
                 <input type="submit" id="submit" value="送出">
