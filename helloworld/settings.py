@@ -134,6 +134,6 @@ else:
 
 
 
-
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 django_heroku.settings(locals())
