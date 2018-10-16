@@ -16,9 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-
+from loginapp import views as lviews
+    
+    #michael0703\weiskewer0703###
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('guestbook/', views.guestbook),
-    path('', views.index)
+    path('', lviews.index),
+    path('login/', lviews.login),
+    path('logout/', lviews.logout),
+    path('register/', lviews.register),
+    path('index/', lviews.index)
 ]

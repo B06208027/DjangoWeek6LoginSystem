@@ -4,12 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Week4Example留言板</title>
+    <title>Week6Example留言板</title>
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/journal/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Hi大家，這是第五週的陽春範例。</h1>
-    <h2>第五週需要學的是如何處理使用者表單、還有如何處理routing<br>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Welcome</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/admin">Admin<span class="sr-only">點這</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/guestbook">Guestbook</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- <h1>Hi大家，這是第六週的陽春範例。</h1> -->
+    <h2>第六週需要學的是如何處理使用者表單、還有如何處理routing<br>
         這個地方不會那麼困難<br>
         主要困難的地方一樣是處理資料庫（兩端）的部分<br>
         
@@ -28,7 +46,7 @@
         <div id="send-box">
             <form id="send-form" action="." method="post">
                 {% csrf_token %}
-                <input type="text" name="name" id="name" placeholder="暱稱">
+                <input type="text" name="name" id="name" placeholder="暱稱(有登入就不用)">
                 <input type="text" name="msg" id="msg" placeholder="說點什麼？">
                 <input type="submit" id="submit" value="送出">
             </form>

@@ -10,6 +10,8 @@ def guestbook(request):
 
 	if request.method == 'POST':
 		_talker = request.POST.get('name')
+		if request.user.is_authenticated:
+			_talker = request.user.username
 		_message = request.POST.get('msg')
 		_talktime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
 		TextMessage.objects.create(talker=_talker, message=_message, talktime=_talktime)
